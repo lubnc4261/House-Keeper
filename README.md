@@ -22,7 +22,7 @@ On linux its quiet harder some usefull links that I used are:
 
 
 
-This bot is an all arounder so you can use it for management, music, and other things. I will keep commiting new changes since its the project i am currently working on (im working alone on it). If you are exploring my code and got any questions, suggestions or bug reports,  don't hesitate to contact me on discord, my tag is: `Militär Staubsauger#0668`
+This bot is an all arounder so you can use it for management, music, and other things. I will keep commiting new changes since its the project i am currently working on (im working alone on it). If you are exploring my code and got any questions, suggestions or bug reports, don't hesitate to contact me on discord, my tag is: `Militär Staubsauger#0668` or join my [community server](https://discord.gg/gJaZbKCmE7)
 
 When i am including examples for commands, you can of course change the numbers since they are just examples, same goes for Strings, ints, etc.
 
