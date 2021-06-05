@@ -1,13 +1,6 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2019 Valentin B.
-
-A simple music bot written in discord.py using youtube-dl.
-
-Though it's a simple example, music bots are complex and require much time and knowledge until they work perfectly.
-Use this as an example or a base for your own bot and extend it as you want. If there are any bugs, please let me know.
-
 Requirements:
 
 Python 3.5+
@@ -27,7 +20,6 @@ import youtube_dl
 from async_timeout import timeout
 from discord.ext import commands
 
-# Silence useless bug reports messages
 youtube_dl.utils.bug_reports_message = lambda: ''
 
 
