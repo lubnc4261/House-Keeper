@@ -30,8 +30,8 @@ This bot is an all arounder so you can use it for management, music, and other t
 When i am including examples for commands, you can of course change the numbers since they are just examples, same goes for Strings, ints, etc.
 
 Tips: 
-- mention user, only if Info says different
-- keep multiple words form 1 argument in  " " quotes to avoid errors
+- Mention users for interaction, only do it different if the Info says so
+- keep multiple words form 1 argument in  " " quotes to avoid errors and skipped arguments
 
 Modules that are used are:
 
