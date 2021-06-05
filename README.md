@@ -39,6 +39,8 @@ Modules that are used are:
 `pip install request` (if you dont have it already installed)
 `pip install psutil`
 
+The account that I use in the examples `test#1111` is just a fictive creation and got no connection or associations to the owner of this account in any way.
+
 Command List
 ------------
 **Info:** The preset prefix is `<` but you can change it via the command `<current_prefix>prefix<new_prefix>`
