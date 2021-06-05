@@ -37,7 +37,7 @@ Modules that are used are:
 `pip install youtube_dl` (v2021.5.16, since the bot also works as a music bot)
 `pip install pynacl` (v1.4.0)
 `pip install request` (if you dont have it already installed)
-`pip install psutil`
+`pip install psutil` (for the status command)
 
 The account that I use in the examples `test#1111` is just a fictive creation and got no connection or associations to the owner of this account in any way.
 
