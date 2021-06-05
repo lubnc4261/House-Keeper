@@ -8,12 +8,15 @@
 To upgrade you'r python to 3 on the PI i used this:
 
 [itheo.nl](https://itheo.nl/install-python-3-9-on-raspberry-pi)
+[raspberry-valley](https://raspberry-valley.azurewebsites.net/Python-Default-Version/)
 
 If you want to also use the music function you have to add the needed lib's down below, as well as add [FFmpeg](https://www.ffmpeg.org/download.html) to your **PATH** on Windows its quiet easy so just search it up:
 - install .exe
 - get path of the /bin exe's
 - go to windows path settings and add new variable down below
 - add the path of the 3 exe's
+
+[Usefull video](https://youtu.be/r1AtmY-RMyQ)
 
 On linux its quiet harder some usefull links that I used are:
 [pimylifeup.com](https://pimylifeup.com/compiling-ffmpeg-raspberry-pi/)
