@@ -226,7 +226,7 @@ Command and Alias | Description | Usage | Info
 `/ban` | ban the user as regual | `/ban test#1111 "playing fortnite"`| in source code marked as  "_removeuser_" but that doesnt matter
 `/lock` | locks the channel for default role | `/lock "stop spamming guys"` | 
 `/unlock` | unlock the channel back again | `/unlock "now another try"` | 
-`/nick` | nicks the user | `/nick test#111 noob"` | 
+`/nick` | nicks the user | `/nick test#111 noob` | 
 `/prefix` | change prefix if forgotten | `/prefix <new_prefi>` | **not working**
 
 
