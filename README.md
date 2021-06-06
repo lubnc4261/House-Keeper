@@ -187,7 +187,7 @@ Command and Alias | Description | Usage | Info
 
 Command and Alias | Description | Usage | Info
 ---------------|---------------|--------|-------
-`shutdown` | shutdown the bot | `shutdown` | not working
+`logout` | shutdown the bot | `shutdown` | not working
 `rename` | rename the bot | `rename Kouse Heeper` |
 
 ## security ##
