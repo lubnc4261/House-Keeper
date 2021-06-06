@@ -24,6 +24,7 @@ class utilitiesCog(commands.Cog):
         embed.add_field(name=":ticket: `userinfo <@mention>`", value="Shows user related information", inline=True)
         embed.add_field(name=":no_mouth: `avatar <@mention>`", value="Profile Picture of the User in PNG", inline=True)
         embed.add_field(name=":book: `serverinfo`", value="Shows Server related information", inline=True)
+        embed.add_field(name=":bar_chart: `channelstats`", value="See Channel stats", inline=True)
         embed.add_field(name=":dividers: `hierarchy`", value="Shows Hierarchy system", inline=True)
         embed.add_field(name=":orange_book: `chknsfw`", value="Checks if channel is nsfw", inline=True)
         embed.add_field(name=":tickets: `myid`", value="Shows own discord ID", inline=True)
@@ -338,6 +339,28 @@ class utilitiesCog(commands.Cog):
                 break
         msg += '```'
         await ctx.send(msg)
+        
+    @commands.command()
+    async def channelstats(self, ctx):
+        channel = ctx.channel
+
+        embed = discord.Embed(
+            title=f"Stats for **{channel.name}**",
+            description=f"{'Category: {}'.format(channel.category.name) if channel.category else 'This channel is not in a category'}",
+            color=discord.Colour.dark_gray(),
+        )
+        embed.add_field(name="Channel Guild", value=ctx.guild.name, inline=True)
+        embed.add_field(name="Channel Id", value=channel.id, inline=True)
+        embed.add_field(name="Channel Topic",value=f"{channel.topic if channel.topic else 'No topic.'}",inline=True)
+        embed.add_field(name="Channel Position", value=channel.position, inline=True)
+        embed.add_field(name="Channel Slowmode Delay", value=channel.slowmode_delay, inline=True)
+        embed.add_field(name="Channel is nsfw?", value=channel.is_nsfw(), inline=True)
+        embed.add_field(name="Channel is news?", value=channel.is_news(), inline=True)
+        embed.add_field(name="Channel Creation Time", value=channel.created_at, inline=True)
+        embed.add_field(name="Channel Permissions Synced",value=channel.permissions_synced,inline=True)
+        embed.add_field(name="Channel Hash", value=hash(channel), inline=True)
+
+        await ctx.send(embed=embed)
         
 
 
