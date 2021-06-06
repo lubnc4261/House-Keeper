@@ -282,50 +282,64 @@ class managementCog(commands.Cog):
 
 
     @commands.command()
-    @commands.has_permissions(administrator=True, ban_members=True, manage_guild=True)
+    @commands.has_permissions(ban_members=True)
     async def getbans(self, ctx):
-
-        try:
-
  
-            x = await ctx.message.guild.bans()
-            x = '\n'.join([str(y.user) for y in x])
-            embed = discord.Embed(title="List of Banned Members", description=x, colour=0xFFFFF)
-            return await ctx.send(embed=embed)
+        x = await ctx.message.guild.bans()
+        x = '\n'.join([str(y.user) for y in x])
+        embed = discord.Embed(title="List of Banned Members", description=x, colour=0xFFFFF)
+        return await ctx.send(embed=embed)
+    
+    @getbans.error
+    async def getbans_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
 
-        except Exception as e:
-            await ctx.send(e)
+            embed = discord.Embed(
+                title="Command Error",
+                color=discord.Color.red()
+            )
+
+            embed.add_field(name=":thinking:", value="You miss the ban members permission")
+
+            await ctx.send(embed=embed)
 
     @commands.command()
-    @has_permissions(kick_members = True, ban_members=True, manage_guild=True, administrator=True)
+    @has_permissions(ban_members=True)
     async def bans(self, ctx):
+        users = await ctx.guild.bans()
+        if len(users) > 0:
+            msg = f'`{"ID":21}{"Name":25} Reason\n'
+            for entry in users:
+                userID = entry.user.id
+                userName = str(entry.user)
+                if entry.user.bot:
+                    username = '🤖' + userName #:robot: emoji
+                reason = str(entry.reason) #Could be None
+                msg += f'{userID:<21}{userName:25} {reason}\n'
+            embed = discord.Embed(color=0xe74c3c) #Red
+            embed.set_thumbnail(url=ctx.guild.icon_url)
+            embed.set_footer(text=f'Server: {ctx.guild.name}')
+            embed.add_field(name='Ranks', value=msg + '`', inline=True)
+            await ctx.send(embed=embed)
+        else:
+            await ctx.send('**:negative_squared_cross_mark:** There are no banned users!')
 
-        try:
+    @bans.error
+    async def bans_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
 
-            users = await ctx.guild.bans()
-            if len(users) > 0:
-                msg = f'`{"ID":21}{"Name":25} Reason\n'
-                for entry in users:
-                    userID = entry.user.id
-                    userName = str(entry.user)
-                    if entry.user.bot:
-                        username = '🤖' + userName #:robot: emoji
-                    reason = str(entry.reason) #Could be None
-                    msg += f'{userID:<21}{userName:25} {reason}\n'
-                embed = discord.Embed(color=0xe74c3c) #Red
-                embed.set_thumbnail(url=ctx.guild.icon_url)
-                embed.set_footer(text=f'Server: {ctx.guild.name}')
-                embed.add_field(name='Ranks', value=msg + '`', inline=True)
-                await ctx.send(embed=embed)
-            else:
-                await ctx.send('**:negative_squared_cross_mark:** There are no banned users!')
+            embed = discord.Embed(
+                title="Command Error",
+                color=discord.Color.red()
+            )
 
-        except Exception as e:
-            await ctx.send(e)
+            embed.add_field(name=":thinking:", value="You miss the ban members permission")
+
+            await ctx.send(embed=embed)
 
 
     @commands.command(pass_context=True, alies=['rmrole', 'removerole', 'removerank'])
-    @commands.has_permissions(manage_roles = True, administrator=True)
+    @commands.has_permissions(manage_roles = True)
     async def rmrank(self, ctx, member: discord.Member=None, *rankName: str):
 
         rank = discord.utils.get(ctx.guild.roles, name=' '.join(rankName))
@@ -334,6 +348,20 @@ class managementCog(commands.Cog):
             await ctx.send(f':white_check_mark: Role **{rank.name}** removed from **{member.name}** ')
         else:
             await ctx.send(':red_square: You have to specify a user!')
+            
+            
+    @rmrank.error
+    async def rmrank_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+
+            embed = discord.Embed(
+                title="Command Error",
+                color=discord.Color.red()
+            )
+
+            embed.add_field(name=":thinking:", value="You miss the manage roles permission")
+
+            await ctx.send(embed=embed)
 
     
     @commands.command()
@@ -347,7 +375,20 @@ class managementCog(commands.Cog):
 
         with open ("prefixes.json", "w") as f:
             json.dump(prefixes, f, indent=4)
-        
+            
+            
+    @prefix.error
+    async def prefix_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+
+            embed = discord.Embed(
+                title="Command Error",
+                color=discord.Color.red()
+            )
+
+            embed.add_field(name=":thinking:", value="You miss the administrator permission")
+
+            await ctx.send(embed=embed)
 
 
 
