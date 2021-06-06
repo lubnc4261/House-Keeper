@@ -30,7 +30,7 @@ class managementCog(commands.Cog):
         embed.add_field(name=":mechanic: `name <name>`", value="Changes the Server name", inline=True)
         embed.add_field(name=":technologist: `poll <text-for-poll> <vote1> <vote2>`", value="Make a poll", inline=True)
         embed.add_field(name=":paperclip: `log <limit>`", value="Saves the chat and send the File to chat", inline=True)
-        #embed.add_field(name="`delete <channel>`", value="Delete a channel", inline=False)
+        embed.add_field(name=":man_mage: `delcat <channel>`", value="Delete a category", inline=True)
         embed.set_footer(text="Help Box for the House Keeper Bot")
 
         await ctx.send(embed = embed)
@@ -387,6 +387,25 @@ class managementCog(commands.Cog):
             )
 
             embed.add_field(name=":thinking:", value="You miss the administrator permission")
+
+            await ctx.send(embed=embed)
+            
+    @commands.command()
+    @has_permissions(manage_channels = True)
+    async def delcat(self, ctx, category: discord.CategoryChannel, *, reason=None):
+        await category.delete(reason=reason)
+        await ctx.send(f"I deleted category {category.name} for you")
+
+    @delcat.error
+    async def delcat_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+
+            embed = discord.Embed(
+                title="Command Error",
+                color=discord.Color.red()
+            )
+
+            embed.add_field(name=":thinking:", value="You miss the manage channels permission")
 
             await ctx.send(embed=embed)
 
