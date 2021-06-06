@@ -45,6 +45,28 @@ class loggerCog(commands.Cog):
         if isinstance(error, commands.errors.CommandOnCooldown):
             seconds = str(error)[34:]
             await ctx.send(f':alarm_clock: Cooldown! Try in {seconds} again')
+            
+    @commands.command()
+    @commands.cooldown(1, 15, commands.cooldowns.BucketType.channel)
+    @commands.has_permissions(manage_messages=True)
+    async def savemembers(self, ctx):
+        safeFile = f"{ctx.guild} users.log"
+        with open(safeFile,'w', encoding="UTF-8") as f:
+            async for member in ctx.guild.fetch_members(limit=None):
+                print("{},{}".format(member,member.id), file=f)
+        msg = f":ok: Users got archived"
+        f = discord.File(safeFile)
+        await ctx.send(file = f, content=msg)
+        os.remove(safeFile)
+
+    @savemembers.error
+    async def savemembers_error(self, error, ctx):
+        if isinstance(error, commands.errors.CommandOnCooldown):
+            seconds = str(error)[34:]
+            await ctx.send(f':alarm_clock: Cooldown! Try in {seconds} again')
+
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send("Missing manage messages Permission")
 
 
 
