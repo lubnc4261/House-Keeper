@@ -1,5 +1,5 @@
 # House-Keeper
-
+[![status](https://img.shields.io/badge/status-working-green)](https://github.com/lubnc4261/House-Keeper)
 [![Python3](https://img.shields.io/badge/python-3.7-blue.svg)](https://github.com/lubnc4261/House-Keeper)
 [![Python3](https://img.shields.io/badge/python-3.9-blue.svg)](https://github.com/lubnc4261/House-Keeper)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)]
