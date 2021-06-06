@@ -151,7 +151,7 @@ Command and Alias | Description | Usage | Info
 ---------------|---------------|--------|-------
 `clear` | clears the chat, if amount not given then 13 | `clear 4` |
 `kick` | kicks a user | `kick test#1111` |
-`ban` | bans a user | `ban test#1111` |
+`ban` | bans a user w.reason | `ban test#1111 uncool` |
 `unban` | unbanns a user | `unban <name>#<discriminator>` | enter manually since user don't "exists"
 `getbans` | get all active bans | `getbans` |
 `bans` | get all bans w. reason | `bans` |
@@ -162,6 +162,7 @@ Command and Alias | Description | Usage | Info
 `name` | renames the server | `name SuperCoolDiscord` |
 `poll` | create a basic poll | `poll "python or java" "python" "java" "html"` | keep text in " " quotes
 `log` | logs messages from the chat | `log 55` | logs messages in .txt then send it to the channel as attachement
+`delcat` | delete a category w.reason | `delcat Channels useless` | 
 
 ## music ##
 
