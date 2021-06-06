@@ -208,6 +208,7 @@ Command and Alias | Description | Usage | Info
 `userinfo` | see all infos about a user | `userinfo test#1111` | If user has to many roles the get cut off
 `avatar` | bot send user avatar in channel | `avatar test#1111` |
 `serverinfo` | bot provides server infos | `serverinfo` |
+`channelstats` | provides channel infos | `channelstats` |
 `hierarchy` | list all roles in hierarchy order | `hierarchy` |
 `chknsfw` | check if the channel is nsfw | `chknsfw`|
 `myid` | shows you you'r id | `myid`
