@@ -30,6 +30,7 @@ class managementCog(commands.Cog):
         embed.add_field(name=":mechanic: `name <name>`", value="Changes the Server name", inline=True)
         embed.add_field(name=":technologist: `poll <text-for-poll> <vote1> <vote2>`", value="Make a poll", inline=True)
         embed.add_field(name=":paperclip: `log <limit>`", value="Saves the chat and send the File to chat", inline=True)
+        embed.add_field(name=":paperclip: `savemembers`", value="Saves all members and send the File in channel", inline=True)
         embed.add_field(name=":man_mage: `delcat <category>`", value="Delete a category", inline=True)
         embed.set_footer(text="Help Box for the House Keeper Bot")
 
