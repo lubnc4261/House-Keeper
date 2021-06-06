@@ -1,6 +1,7 @@
 # House-Keeper
 
 [![Python3](https://img.shields.io/badge/python-3.7-blue.svg)](https://github.com/lubnc4261/House-Keeper)
+[![Python3](https://img.shields.io/badge/python-3.9-blue.svg)](https://github.com/lubnc4261/House-Keeper)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)]
 
 **ATTENTION: I made this bot by using the new rewrite version of [discord.py v1.7+](https://github.com/Rapptz/discord.py), and the [discord-py-slash-command v1.2.2](https://github.com/LordOfPolls/discord-py-slash-command) lib. I am currently self hosting this bot on an [Raspberry PI4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) but you can take a look on the code and implement it the way you want it.**
