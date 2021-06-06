@@ -162,6 +162,7 @@ Command and Alias | Description | Usage | Info
 `name` | renames the server | `name SuperCoolDiscord` |
 `poll` | create a basic poll | `poll "python or java" "python" "java" "html"` | keep text in " " quotes
 `log` | logs messages from the chat | `log 55` | logs messages in .txt then send it to the channel as attachement
+`savemembers` | logs all users in server to File | `savemembers` | log get send in channel
 `delcat` | delete a category w.reason | `delcat Channels useless` | 
 
 ## music ##
