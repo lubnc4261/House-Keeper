@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from discord.ext import tasks
-from itertools import cycle
+#from itertools import cycle
 import json
 import sys
 import traceback
@@ -34,7 +34,7 @@ bot = commands.Bot(command_prefix = get_prefix, owner_id=652530420524777493, int
 
 
 
-status = cycle(['Made in Python', 'type §§help', 'V 2.0'])
+#status = cycle(['Made in Python', 'type <help', 'V 2.0'])
 bot.remove_command('help')
 
 
@@ -89,16 +89,22 @@ if __name__ == "__main__":
 
 @bot.event
 async def on_ready():
+    
+    ammount = f"{len(bot.guilds)}"
+    
     print("Bot is ready ...")
     print('Connected to bot: {}'.format(bot.user.name))
     print('Bot ID: {}'.format(bot.user.id))
+    botactivity = discord.Activity(type=discord.ActivityType.watching, name="<help " + " | " + ammount + " servers")
+    await bot.change_presence(activity=botactivity, status=discord.Status.online)
 
 
 
 
-@tasks.loop(seconds=50)
-async def change_status():
-    await bot.change_presence(activity=discord.Game(next(status)))
+
+#@tasks.loop(seconds=50)
+#async def change_status():
+#    await bot.change_presence(activity=discord.Game(next(status)))
 
 
 
