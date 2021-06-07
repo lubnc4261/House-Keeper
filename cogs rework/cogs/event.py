@@ -66,7 +66,7 @@ class eventCog(commands.Cog):
 
 	@commands.Cog.listener()
 	async def on_guild_remove(self, guild):
-		pass
+		print("removed from {guild}")
 
 	@commands.Cog.listener()
 	async def on_member_join(self, member):
