@@ -6,7 +6,7 @@
 
 **ATTENTION: I made this bot by using the new rewrite version of [discord.py v1.7+](https://github.com/Rapptz/discord.py), and the [discord-py-slash-command v1.2.2](https://github.com/LordOfPolls/discord-py-slash-command) lib. I am currently self hosting this bot on an [Raspberry PI4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) but you can take a look on the code and implement it the way you want it.**
 
-To upgrade you'r python to 3 on the PI i used this:
+To upgrade your python to 3 on the PI i used this:
 
 [itheo.nl](https://itheo.nl/install-python-3-9-on-raspberry-pi)
 [raspberry-valley](https://raspberry-valley.azurewebsites.net/Python-Default-Version/)
@@ -235,6 +235,3 @@ Command and Alias | Description | Usage | Info
 `/unlock` | unlock the channel back again | `/unlock "now another try"` | 
 `/nick` | nicks the user | `/nick test#111 noob` | 
 `/prefix` | change prefix if forgotten | `/prefix <new_prefi>` | **not working**
-
-
-So thats currently it i hope i could help you, as already said, if you got questions you can get in touch with me on discord
