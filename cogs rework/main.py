@@ -71,11 +71,8 @@ initial_extensions = ["cogs.management",
                     "cogs.music",
                     "cogs.slash",
                     "cogs.randomshit",
-                    #"cogs.rule34",
-                    #"cogs.PornHub",
-                    #"cogs.level",
+                    "cogs.nsfw",
                     "cogs.games"]
-                    #"cogs.economy"
 
 if __name__ == "__main__":
     for extension in initial_extensions:
