@@ -221,6 +221,34 @@ Command and Alias | Description | Usage | Info
 `emoji` | extract emojis as image | `emoji pogchamp` | only the id not the emoji itself
 `timer` | creates a timer that will remind you in the channel | `timer "buy toilet paper" 1s` or `1m` or `1h` |
 
+## nsfw ##
+
+using nekos nsfw api to get hentai images
+the structure of all nsfw commands is nearly the same due the usage of the same API
+
+Command and Alias | Description | Usage | Info
+---------------|--------------|---------|--------
+`feet` | feet content | `feet` |
+`anal` | anal content | `anal` | 
+`lewd` | lewd content | `lewd` |
+`pussy` | pussy content | `pussy` |
+`kiss` | kiss content | `kiss` | 
+`blowjob` | blowjob content | `blowjob` |
+`boobs` | boobs content | `boobs` |
+`feed` | feed content | `feed` | 
+`cum` | cum content | `cum` |
+`holo` | holo content | `holo` |
+`spank` | spank content | `spank` |
+`poke` | poke content | `poke` |
+`cuddle` | cuddle content | `cuddle` |
+`classic` | classic content | `classic` |
+`les` | les content | `les` |
+`ero` | ero content | `ero` |
+`smallboobs` | smallboobs | `smallboobs` | 
+`kuni` | kuni content | `kuni` |
+`tits` | tits content | `tits`
+
+
 
 ## slash commands ##
 
