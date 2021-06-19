@@ -27,6 +27,7 @@ class funCog(commands.Cog):
         embed.add_field(name=":rewind: `say <text>`", value="Bot say's <text>", inline=True)
         embed.add_field(name="🔁 `reverse <text>`", value="Reverse the message", inline=True)
         embed.add_field(name="💖 `hotcalc <@mention>`", value="See how hot the user is", inline=True)
+        embed.add_field(name=":8ball: `rate <thing>`", value="Gives you a rate", inline=True)
         embed.add_field(name=":coin: `coinflip`", value="Flip a coin", inline=True)
         embed.add_field(name=":skull: `f`", value="Pay respect", inline=True)
         embed.add_field(name="<:dank_meme:848973798526812212>`dankmeme`", value="Random Reddit Dank Meme", inline=True)
@@ -340,6 +341,11 @@ class funCog(commands.Cog):
             emoji = "💔"
 
         await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
+        
+    @commands.command()
+    async def rate(self, ctx, *, thing: commands.clean_content):
+        rate_amount = random.uniform(0.0, 100.0)
+        await ctx.send(f"I would give `{thing}` a **{round(rate_amount, 4)}** out of  **100**")
 
 
 
