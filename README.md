@@ -130,6 +130,7 @@ Command and Alias | Description | Usage | Info
 `f` | pay respect | `f` | 
 `reverse` | reverse the message | `reverse` | 
 `hotcalc` `howhot` `hot` | see how hot the user is | `hot test#1111` | 
+`rate` | gives you a rate about sth. | `rate java` | 
 `dankmeme` | random r/dankmeme | `dankmeme` | emoji is from extra server
 `meme` | random meme | `meme` | emoji is from extra server
 `meow` | cat image w. quote | `meow` | uses api
