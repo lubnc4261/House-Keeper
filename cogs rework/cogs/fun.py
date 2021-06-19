@@ -25,6 +25,10 @@ class funCog(commands.Cog):
         embed.add_field(name=":angry: `triggered <@mention>`", value="Triggered overlay on user", inline=True)
         embed.add_field(name=":computer: `youtube <search>`", value="Search something on youtube", inline=True)
         embed.add_field(name=":rewind: `say <text>`", value="Bot say's <text>", inline=True)
+        embed.add_field(name="🔁 `reverse <text>`", value="Reverse the message", inline=True)
+        embed.add_field(name="💖 `hotcalc <@mention>`", value="See how hot the user is", inline=True)
+        embed.add_field(name=":coin: `coinflip`", value="Flip a coin", inline=True)
+        embed.add_field(name=":skull: `f`", value="Pay respect", inline=True)
         embed.add_field(name="<:dank_meme:848973798526812212>`dankmeme`", value="Random Reddit Dank Meme", inline=True)
         embed.add_field(name="<:meme:848973488185933844>`meme`", value="Response with a meme", inline=True)
         embed.add_field(name=":cat: `meow`", value="Get random cat image", inline=True)
@@ -294,6 +298,49 @@ class funCog(commands.Cog):
             else:
                 await ctx.send('No horny :(')
             await session.close()
+            
+            
+    @commands.command(aliases=["flip", "coin"])
+    async def coinflip(self, ctx):
+        results = ["Heads", "Tails"]
+        await ctx.send(f"**{ctx.author.name}** flipped a coin and got **{random.choice(results)}**!")
+
+
+    @commands.command()
+    async def f(self, ctx, *, text: commands.clean_content = None):
+        """ Press F to pay respect """
+        hearts = ["❤", "💛", "💚", "💙", "💜"]
+        reason = f"for **{text}** " if text else ""
+        await ctx.send(f"**{ctx.author.name}** has paid their respect {reason}{random.choice(hearts)}")
+
+    @commands.command()
+    async def reverse(self, ctx, *, text: str):
+        """ !poow ,ffuts esreveR
+        Everything you type after reverse will of course, be reversed
+        """
+        t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
+        await ctx.send(f"🔁 {t_rev}")
+
+    @commands.command(aliases=["howhot", "hot"])
+    async def hotcalc(self, ctx, *, user: discord.Member = None):
+        """ Returns a random percent for how hot is a discord user """
+        user = user or ctx.author
+
+        random.seed(user.id)
+        r = random.randint(1, 100)
+        hot = r / 1.17
+
+        if hot > 25:
+            emoji = "❤"
+        elif hot > 50:
+            emoji = "💖"
+        elif hot > 75:
+            emoji = "💞"
+        else:
+            emoji = "💔"
+
+        await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
+
 
 
     
