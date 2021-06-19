@@ -126,6 +126,10 @@ Command and Alias | Description | Usage | Info
 `triggered` | triggered image overlay | `triggered test#1111` | uses api to get overlay
 `youtube` | perform a search on youtube | `youtube linus sex tips` | 
 `say` | bot repeats content | `say fortnite is bad` |
+`coinflip` `flip` `coin` | flip the coin | `flip` |
+`f` | pay respect | `f` | 
+`reverse` | reverse the message | `reverse` | 
+`hotcalc` `howhot` `hot` | see how hot the user is | `hot test#1111` | 
 `dankmeme` | random r/dankmeme | `dankmeme` | emoji is from extra server
 `meme` | random meme | `meme` | emoji is from extra server
 `meow` | cat image w. quote | `meow` | uses api
