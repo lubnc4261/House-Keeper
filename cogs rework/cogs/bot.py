@@ -6,6 +6,23 @@ import inspect
 import os
 import datetime
 import psutil
+import json
+
+
+def get_prefix(bot, message):
+    if not message.guild:
+        return commands.when_mentioned_or("<")(bot, message)
+
+    with open("prefixes.json", "r") as f:
+        prefixes = json.load(f)
+
+    if str(message.guild.id) not in prefixes:
+        return commands.when_mentioned_or("<")(bot, message)
+
+    prefix = prefixes[str(message.guild.id)]
+    return commands.when_mentioned_or(prefix)(bot, message)
+
+client = commands.Bot(command_prefix=get_prefix)
 
 def get_size(bytes, suffix="B"):
     factor = 1024
@@ -71,25 +88,38 @@ class botCog(commands.Cog):
 
 
     @commands.command()
-    async def info(self, ctx):
+    async def about(self, ctx):
 
         embed = discord.Embed(
-            colour=discord.Colour.blue(),
-            title="Infos for the bot"
+            title="Infos about the bot",
+            color = discord.Color.magenta()
         )
 
         embed.set_author(name="House Keeper Info", icon_url="https://cdn.discordapp.com/avatars/735221653998534688/0f3d1717085e0a4c83bd914470581e80.webp?size=1024")
-        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/443208943213477889/601699371221909504/imagesfidosfhdis.jpg")
-        embed.add_field(name="Bot ID", value="735221653998534688", inline=False)
-        embed.add_field(name="Bot created at", value="21.7.2020 at 21:48:22", inline=False)
-        embed.add_field(name="Language", value="Python", inline=False)
-        embed.add_field(name="Bibliothek", value="discord.py rewrite", inline=False)
-        embed.add_field(name="Programmed from", value="`Militär Staubsauger#0668`", inline=False)
-        embed.add_field(name="Contact", value="For questions etc. DM the Programmer", inline=False)
-        embed.add_field(name="Source code", value="https://github.com/lubnc4261/House-Keeper", inline=False)
-        embed.add_field(name="Tip", value="Keep Parameters in 'quotes' to avoid errors", inline=False)
-        embed.add_field(name="Log events", value="Name a channel **hk-logging** for logs", inline=False)
+        embed.add_field(name="Bot ID", value="735221653998534688", inline=True)
+        embed.add_field(name="Bot created at", value="21.7.2020 at 21:48:22", inline=True)
+        embed.add_field(name="Language", value="Python", inline=True)
+        embed.add_field(name="Libraries", value="**discord.py rewrite** use `modules` for list", inline=True)
+        embed.add_field(name="Programmed from", value="`Militär Staubsauger#0668`", inline=True)
+        embed.add_field(name="Contact", value="For questions etc. DM the Programmer", inline=True)
+        embed.add_field(name="Source code", value="https://github.com/lubnc4261/House-Keeper", inline=True)
+        embed.add_field(name="Tip", value="Keep Parameters in 'quotes' to avoid errors", inline=True)
+        embed.add_field(name="Log events", value="Name a channel **hk-logging** for logs", inline=True)
         embed.set_footer(text="Infobox for the House Keeper bot")
+
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def modules(self, ctx):
+
+        embed = discord.Embed(
+            title="List of **all** modules used",
+            description="This also includes preinstalled",
+            color = discord.Color.gold()
+        )
+
+        embed.add_field(name="Modules: ", value="discord-py-slash-command==1.2.0, discord.py==1.7.1, psutil==5.8.0, PyNaCl==1.4.0, youtube-dl==2021.5.16, aiohttp==3.7.4.post0, async-timeout==3.0.1, asyncpg==0.23.0, Pillow==8.2.0, platform, os, sys, json, datetime, time, inspect, random, asyncio, collections, urllib, functools, math, itertools, textwrap", inline=False)
+
 
         await ctx.send(embed=embed)
 
