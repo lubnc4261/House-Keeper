@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord.ext.commands import MissingPermissions, BadArgument, MissingRequiredArgument, CommandInvokeError, has_permissions
 import json
 import re
+from time import gmtime, strftime
 
 def get_prefix(bot, message):
     if not message.guild:
@@ -35,14 +36,63 @@ class eventCog(commands.Cog):
 			await message.delete()
 			await message.channel.send("Link detected and deleted")
 			
+	@commands.Cog.listener()
+	async def on_message(self, message):
+		attach = message.attachments
+		if len(attach) > 0:
+			for attachment in attach:
+				if attachment.filename.endswith(".exe"):
+					await message.channel.send(":exclamation: EXE located, possible danger level [HIGH] \n Don't trust random files !")
+
+				if attachment.filename.endswith(".dll"):
+					await message.channel.send(":exclamation: EXE located, possible danger level [HIGH] \n Don't trust random files !")
+
+				if attachment.filename.endswith(".py"):
+					await message.channel.send(":exclamation: PYTHON located, possible danger level [HIGH] \n Don't trust random files !")
+
+				if attachment.filename.endswith(".jar"):
+					await message.channel.send(":exclamation: JAR located, possible danger level [HIGH] \n Don't trust random files !")
+
+				if attachment.filename.endswith(".bat"):
+					await message.channel.send(":exclamation: BAT located, possible danger level [HIGH] \n Don't trust random files !")
+
+				if attachment.filename.endswith(".ps1"):
+					await message.channel.send(":exclamation: PS located, possible danger level [HIGH] \n Don't trust random files !")
+
+				if attachment.filename.endswith(".vbs"):
+					await message.channel.send(":exclamation: VBS located, possible danger level [HIGH] \n Don't trust random files !")
+
+				else:
+					pass
+			
 
 
 
 	@commands.Cog.listener()
 	async def on_message_delete(self, message):
-		#await message.channel.send("A message was deleted here")
-		pass
-		#await client.process_commands(message)
+		try:
+			channel = discord.utils.get(message.guild.channels, name="hk-logging")
+			time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+
+			embed = discord.Embed(
+				title=f"Message got deleted",
+				color = discord.Color.purple(),
+				
+			)
+
+			embed.set_author(name=f"{message.author}", icon_url=message.author.avatar_url)
+			embed.add_field(name="Content:", value=f"{message.content}", inline=True)
+			embed.add_field(name="Channel:", value=f"{message.channel.mention}", inline=True)
+			embed.add_field(name="At:", value=time, inline=False)
+			embed.add_field(name="User / Nick:", value=f"{message.author.mention}", inline=False)
+
+			#await channel.send(f'message: ``{message.content}`` by **{message.author.mention}** was deleted in **{message.channel.mention}** at: ' +time)
+
+			await channel.send(embed=embed)
+			await client.process_commands(message)
+		
+		except Exception as e:
+			print(str(e))
 
 
 	@commands.Cog.listener()
