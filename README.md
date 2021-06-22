@@ -49,6 +49,12 @@ Command List
 ------------
 **Info:** The preset prefix is `<` but you can change it via the command `<current_prefix>prefix<new_prefix>`
 
+## passive interactions ##
+**Info:** The bot can log events in a channel that is called **hk-logging** but only if it exists
+Other events are:
+  - if file with [listed extension](https://github.com/lubnc4261/House-Keeper/blob/59850f756122ee55189e0770aa12c05fd451d8bb/cogs%20rework/cogs/event.py#L43) get detected, the bot will send a warn message
+  
+
 ### Bot ###
 
 Command and Alias | Description | Usage | Info
