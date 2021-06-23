@@ -106,6 +106,9 @@ class eventCog(commands.Cog):
 
 		except discord.Forbidden:  # stop the console from spams because if the bot get's removed from a guild it could still process sth. that would raise this exception
 			pass
+		
+		except discord.HTTPException: # if an embed itself get deleted, we do not care, embed content cannot be embed
+			pass
 
 
 
