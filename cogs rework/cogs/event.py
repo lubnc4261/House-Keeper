@@ -32,7 +32,17 @@ class eventCog(commands.Cog):
 	def __init__(self, bot):
 		self.client = bot
 
-
+		#deleted messages
+		#channel creation
+		#channel delete
+		#nickname update
+		#role update
+		#role creation
+		#role delete
+		#member ban
+		#member unban
+		#member join
+		#member remove
 
 
 	@commands.Cog.listener()
