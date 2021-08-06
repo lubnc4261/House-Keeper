@@ -350,6 +350,89 @@ class eventCog(commands.Cog):
 		except discord.Forbidden:
 			pass
 
+	@commands.Cog.listener()
+	async def on_voice_state_update(self, member, before, after):
+		if member.bot:
+			return
+
+
+		####################################################################################
+		
+		if not before.channel:
+			embed = discord.Embed(
+				description=f":inbox_tray: {member.mention} **joined voice channel** ``{after.channel.name}``",
+				timestamp = datetime.utcnow(),
+				color = discord.Color.blue()
+			)
+			embed.set_author(name=f"{member.name}#{member.discriminator}", icon_url='{}'. format(member.avatar_url))
+
+			try:
+
+
+				channel = discord.utils.get(member.guild.channels, name="hk-logging")
+			
+				await channel.send(embed=embed)
+			#print(f"{member.name} joined {after.channel.name}")
+
+			except AttributeError:  
+				pass
+
+			except discord.Forbidden: 
+				pass
+
+			except discord.HTTPException: 
+				pass
+
+		####################################################################################
+
+		if before.channel and not after.channel:
+			embed = discord.Embed(
+				description=f":outbox_tray: {member.mention} **left voice channel** ``{before.channel.name}``",
+				timestamp = datetime.utcnow(),
+				color = discord.Color.blue()
+			)
+			embed.set_author(name=f"{member.name}#{member.discriminator}", icon_url='{}'. format(member.avatar_url))
+
+			try:
+
+
+				channel = discord.utils.get(member.guild.channels, name="hk-logging")
+			
+				await channel.send(embed=embed)
+			#print(f"{member.name} joined {after.channel.name}")
+
+			except AttributeError:  
+				pass
+
+			except discord.Forbidden: 
+				pass
+
+			except discord.HTTPException: 
+				pass
+
+		if before.channel and after.channel:
+			if before.channel.id != after.channel.id:
+				pass
+			else:
+				pass
+
+				############################################################################
+
+				if member.voice.self_stream:
+					pass
+
+
+			    ##########################################################################
+
+				#elif member.voice.self_mute:
+				#	pass
+				#elif member.voice_self_deaf:
+				#	pass
+				else:
+					pass
+
+
+
 
 
 	@commands.Cog.listener()
