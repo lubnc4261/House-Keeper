@@ -409,6 +409,57 @@ class managementCog(commands.Cog):
             embed.add_field(name=":thinking:", value="You miss the manage channels permission")
 
             await ctx.send(embed=embed)
+            
+    @commands.command()
+    @has_permissions(ban_members=True)
+    async def softban(self, ctx, user: discord.Member, *, reason=""):
+        if user:
+            try:
+
+                await user.ban(reason=reason)
+                await ctx.guild.unban(user)
+
+                await ctx.send(f"Successfully sofbanned {user}")
+
+            except discord.Forbidden:
+                await ctx.send("Could not softban user. Not enought permissions to ban the user")
+
+            except MissingPermissions:
+                await ctx.send("You miss the ban members permission")
+
+        else:
+            await ctx.send("Specify the user")
+
+    @commands.command()
+    @has_permissions(administrator=True)
+    async def setuplog(self, ctx):
+
+        try:
+
+            guild = ctx.guild
+
+            
+            overwrites = {
+                guild.default_role: discord.PermissionOverwrite(send_messages=False),
+                guild.me: discord.PermissionOverwrite(send_messages=True)
+            }
+
+
+            await ctx.guild.create_text_channel("hk-logging", overwrites=overwrites, reason="logs")
+
+            await ctx.send("Created the logging channel")
+
+
+
+            
+
+        except discord.Forbidden:
+            await ctx.send("I am missing permissions to set up my log channel these could be: - manage roles - create channels")
+
+        except MissingPermissions:
+            await ctx.send("Only server admins can use this command")
+
+
 
 
 
