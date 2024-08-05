@@ -77,7 +77,7 @@ class botCog(commands.Cog):
         embed.add_field(name="Bot ID", value="735221653998534688", inline=True)
         embed.add_field(name="Bot created at", value="21.7.2020 at 21:48:22", inline=True)
         embed.add_field(name="Language", value="Python", inline=True)
-        embed.add_field(name="Libraries", value="**discord.py rewrite** use `modules` for list", inline=True)
+        embed.add_field(name="Libraries", value="**discord.py v2**", inline=True)
         embed.add_field(name="Programmed by", value="`dauersteven`", inline=True)
         embed.add_field(name="Contact", value="For questions etc. DM the Programmer", inline=True)
         embed.add_field(name="Source code", value="https://github.com/lubnc4261/House-Keeper", inline=True)
