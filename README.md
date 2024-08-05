@@ -45,7 +45,7 @@ This bot is a versatile tool designed for a range of uses, including management,
 
 - The account that I use in the examples, `test` is entirely fictional and has no connection or association with any real individual or this Project
 - If the server has a channel named `hk-logging`, all events will be logged there. If such a channel does not exist, you can use the command `<setuplog` to automatically create one for you
-- The bot is initialized with a default prefix of `<`
+- The bot is initialized with a default prefix of `<` and changeable via `<prefix !`
 
 - Custom responses for various scenarios a command might encounter during execution, such as, but not limited to:
   
