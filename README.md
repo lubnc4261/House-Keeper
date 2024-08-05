@@ -18,13 +18,16 @@
 
 
 <p align="center">
-  <a href="https://github.com/lubnc4261/House-Keeper/edit/main/README.md#preface">Preface</a>
+  <a href="https://github.com/lubnc4261/House-Keeper?tab=readme-ov-file#preface">Preface</a>
   •
-  <a href="https://github.com/lubnc4261/House-Keeper/edit/main/README.md#overview">Overview</a>
+  <a href="https://github.com/lubnc4261/House-Keeper?tab=readme-ov-file#overview">Overview</a>
   •
-  <a href="https://github.com/lubnc4261/House-Keeper/edit/main/README.md#installation">Installation</a>
+  <a href="https://github.com/lubnc4261/House-Keeper?tab=readme-ov-file#installation">Installation</a>
   •
-  <a href="https://github.com/lubnc4261/House-Keeper/edit/main/README.md#featured-commands">Developer</a>
+  <a href="https://github.com/lubnc4261/House-Keeper?tab=readme-ov-file#developer">Developer</a>
+  •
+  <a href="https://github.com/lubnc4261/House-Keeper?tab=readme-ov-file#featured-commands">Commands</a>
+
 </p>
 
 # Preface
@@ -102,7 +105,7 @@ After you confirmed that Python3 is successfully installed, open a Terminal in t
 - You can now start the bot by executing the following command  `python main.py`
 
 
-# Develpoer
+# Developer
 
 ## Adding own plugins
 
