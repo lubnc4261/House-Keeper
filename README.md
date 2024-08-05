@@ -37,7 +37,7 @@ What began as a simple, fun idea a few years ago has developed into a fully-fled
 
 # To-Do List
 
-- [x] Revwrite to v2
+- [x] Rewrite to v2
 - [ ] Add slash-comamnds
 - [ ] Implement music-feature
 - [ ] Create Ticket support
