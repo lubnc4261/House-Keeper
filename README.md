@@ -38,7 +38,7 @@ What began as a simple, fun idea a few years ago has developed into a fully-fled
 # To-Do List
 
 - [x] Rewrite to v2
-- [ ] Add slash-comamnds
+- [x] Add slash-comamnds
 - [ ] Implement music-feature
 - [ ] Create Ticket support
 
@@ -163,6 +163,7 @@ Command and Alias | Description | Usage | Info
 `utilities` | Usefull commands | `utilities` |
 `fun` | fun commands | `fun` |
 `games` | game commands | `games` |
+`slash` | slash supported commands | `slash` |
 `bot` | bot related help  | `bot` |
 
 
@@ -235,4 +236,15 @@ Command and Alias | Description | Usage | Info
 `games` | list all current played games on the server | `games` |
 `emoji` | extract emojis as image | `emoji pogchamp` | only the id not the emoji itself
 `timer` | creates a timer that will remind you in the channel | `timer "buy toilet paper" 1s` or `1m` or `1h` |
+
+## slash ##
+
+I want to keep this balanced and avoid overdoing it
+
+Command and Alias | Description | Usage | info
+---------------|---------------|--------|-------
+`ban` | ban a user | `ban @test` | 
+`userinfo` | show userinfo | `userinfo @test` | 
+`permissions` | show user permissions | `permissions @test` |
+`avatar` | return a user's avatar | `avatar @test` |
 
