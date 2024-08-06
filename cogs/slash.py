@@ -85,7 +85,7 @@ class Slash(commands.Cog):
 
     @app_commands.guild_only()
     @app_commands.command(name="userinfo", description="Get user informations")
-    @commands.guild_only()
+    @app_commands.guild_only()
     async def userinfo(self, interaction: discord.Interaction, member: discord.Member=None):
         try:
 
