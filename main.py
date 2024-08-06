@@ -59,6 +59,7 @@ class HouseKeeper(commands.Bot):
             await self.load_extension("cogs.security")
             await self.load_extension("cogs.event")
             await self.load_extension("cogs.timer")
+            await self.load_extension("cogs.slash")
             await self.load_extension("cogs.utilities")
 
 
