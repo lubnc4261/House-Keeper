@@ -200,7 +200,7 @@ Command and Alias | Description | Usage | Info
 `kick` | kicks a user | `kick test` |
 `ban` | bans a user w.reason | `ban test uncool` |
 `softban` | softban a user | `softban test` | 
-`unban` | unbanns a user | `unban <name>` | enter manually since user don't "exists"
+`unban` | unbanns a user | `unban test` | enter manually since user don't "exists"
 `nick` | nick a user | `nick test nownicked` |
 `give` | give a user a role | `give test admin` | can't give role higher than you or bot
 `rmrank` | removes a role from user | `rmrank test supporter` | mention user **manually** with tag
@@ -247,4 +247,7 @@ Command and Alias | Description | Usage | info
 `userinfo` | show userinfo | `userinfo @test` | 
 `permissions` | show user permissions | `permissions @test` |
 `avatar` | return a user's avatar | `avatar @test` |
+`youtube` | get a fitting video | `youtube python` |
+`lock` | lockdown a whole channel | `lock #general stop` | slash only
+`unlock` | unlock a channel | `unlock #general thanks` | slash only
 
