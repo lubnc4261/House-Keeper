@@ -26,7 +26,14 @@ class Slash(commands.Cog):
             embed=discord.Embed(title="/ before every command", color=0xf0d419)
             embed.set_author(name="House Keeper", icon_url="https://cdn.discordapp.com/avatars/735221653998534688/0f3d1717085e0a4c83bd914470581e80.webp?size=1024")
             embed.set_thumbnail(url="https://media.discordapp.net/attachments/443208943213477889/601699371221909504/imagesfidosfhdis.jpg?width=598&height=585")
-            embed.add_field(name=":closed_lock_with_key: ban <@mention> <reason>", value="Ban a user", inline=True)
+            embed.add_field(name=":closed_lock_with_key: `ban <@mention> <reason>`", value="Ban a user", inline=True)
+            embed.add_field(name=":ticket: `userinfo <@mention>`",value="Shows user related information", inline=True)
+            embed.add_field(name=":face_with_monocle: `permissions <@mention>`" ,value="Check a users permission's", inline=True)
+            embed.add_field(name=":no_mouth: `avatar <@mention>`", value="Profile Picture of the User in PNG", inline=True)
+            embed.add_field(name=":computer: `youtube <search>`", value="Search something on youtube", inline=True)
+            embed.add_field(name=":lock: `lock <channel> <reason>`", value="Lockdown a channel", inline=True)
+            embed.add_field(name=":unlock: `unlock <channel> <reason>`", value="Unlock a channel" ,inline=True)
+            embed.set_footer(text="Help Box for the House Keeper Bot")
             embed.set_footer(text="Help Box for the House Keeper Bot")
 
             await ctx.reply(embed=embed, mention_author = False)
@@ -185,6 +192,62 @@ class Slash(commands.Cog):
                 pass
 
         await interaction.response.send_message(embed=embed)
+
+    @app_commands.command(name="youtube", description="Search for a video on youtube")
+    @app_commands.guild_only()
+    async def youtube(self, interaction: discord.Interaction, *, search: str):
+        from urllib import parse, request
+        import re
+        try:
+
+
+            query_string = parse.urlencode({'search_query': search})
+            html_content = request.urlopen('http://www.youtube.com/results?' + query_string)
+            search_results = re.findall( r"watch\?v=(\S{11})", html_content.read().decode())
+            await interaction.response.send_message('https://www.youtube.com/watch?v=' + search_results[0])
+
+        except Exception as e:
+            await interaction.response.send_message(e)
+
+
+    @app_commands.command(name="lock", description="Lockdown a channel")
+    @app_commands.guild_only()
+    @app_commands.default_permissions(manage_channels=True)
+    async def lock(self, interaction: discord.Interaction, channel: discord.TextChannel, reason: str):
+        await channel.set_permissions(
+                    interaction.guild.default_role,
+                    send_messages=False
+                    )
+        
+        embed = discord.Embed(
+            title=":lock: Channel has been locked!",
+            color=discord.Color.green()
+            )
+        embed.add_field(name=f"{interaction.user} has locked {channel.mention}!",value=f"Reason: {reason}")
+        embed.set_author(name="House Keeper", icon_url="https://cdn.discordapp.com/avatars/735221653998534688/0f3d1717085e0a4c83bd914470581e80.webp?size=1024")
+        embed.set_image(url="https://cdn.discordapp.com/attachments/1185379683072741436/1270692180205375498/devil-or-your-angel-cat.gif?ex=66b49fd0&is=66b34e50&hm=54e866f18974f3087d9c6e3f6e2d86074f6eab9f6c9858a4cc8be38016b865ba&")
+        
+        await interaction.response.send_message(embed=embed)
+
+    @app_commands.command(name="unlock", description="allow messages in the channel again")
+    @app_commands.guild_only()
+    @app_commands.default_permissions(manage_channels=True)
+    async def unlock(self, interaction: discord.Interaction, channel: discord.TextChannel, reason: str):
+        await channel.set_permissions(
+                    interaction.guild.default_role,
+                    send_messages=True
+                    )
+        
+        embed = discord.Embed(
+            title=":unlock: Channel has been unlocked!",
+            color=discord.Color.green()
+            )
+        embed.add_field(name=f"{interaction.user} has unlocked {channel.mention}!",value=f"Reason: {reason}")
+        embed.set_author(name="House Keeper", icon_url="https://cdn.discordapp.com/avatars/735221653998534688/0f3d1717085e0a4c83bd914470581e80.webp?size=1024")
+        embed.set_image(url="https://media.discordapp.net/attachments/1036690507604168774/1152543409639268432/SPOILER_7DFBB949-DB82-4D5A-A400-BE6AEDAC1F7A.gif?ex=66b49632&is=66b344b2&hm=35fe80a4029b93d02b0c68ef44f64a7e426b8377da27025ee2fbe872d8e8c8a9&")
+        
+        await interaction.response.send_message(embed=embed)
+
 
 
 async def setup(bot):
