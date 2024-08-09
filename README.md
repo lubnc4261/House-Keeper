@@ -27,7 +27,8 @@
   <a href="https://github.com/lubnc4261/House-Keeper?tab=readme-ov-file#developer">Developer</a>
   •
   <a href="https://github.com/lubnc4261/House-Keeper?tab=readme-ov-file#featured-commands">Commands</a>
-
+  •
+  <a href="https://github.com/lubnc4261/House-Keeper?tab=readme-ov-file#tickets">Tickets</a>
 </p>
 
 # Preface
@@ -40,7 +41,7 @@ What began as a simple, fun idea a few years ago has developed into a fully-fled
 - [x] Rewrite to v2
 - [x] Add slash-comamnds
 - [ ] Implement music-feature
-- [ ] Create Ticket support
+- [x] Create Ticket support
 
 # Overview
 
@@ -137,6 +138,18 @@ async def setup(bot):
 ## Catching Events
 
 All error events that may occur during the bot's runtime are handled within the [event.py](https://github.com/lubnc4261/House-Keeper/blob/08ec95a6ff2ba505fcb417d91509d969cc79ceb8/cogs/event.py#L601) cog. This cog is specifically designed to capture and manage any exceptions or issues that arise, ensuring that errors are properly logged and addressed without disrupting the bot’s functionality.
+
+# Tickets
+
+The bot also includes a basic ticketing system. To set it up, you'll need to designate a channel as the anchor for ticket creation. You can create this anchor channel by using the command `/ticket_panel <title>`.
+
+> [!NOTE]
+> - The bot will automatically configure the channel to be write-only.  
+> - A category named "Tickets" is required to exist for proper functionality.  
+> - Ticket logs will be saved in **#ticketlog**, provided the channel exists.
+
+The channel name is designed as ticket-<userid> instead of the traditional #number format.  
+When a user or admin closes the ticket using the provided button, the log is automatically saved.
 
 # Featured Commands
 
@@ -250,4 +263,11 @@ Command and Alias | Description | Usage | info
 `youtube` | get a fitting video | `youtube python` |
 `lock` | lockdown a whole channel | `lock #general stop` | slash only
 `unlock` | unlock a channel | `unlock #general thanks` | slash only
+
+## ticket ##
+
+Command and Alias | Description | Usage | Info
+---------------|---------------|--------|-------
+`/ticket_pannel <name>` | Create a Ticket ancor | `/ticket_pannel help` | slash only
+`close` | Close the current viewed Ticket | `close` | Be in the Ticket Channel
 
