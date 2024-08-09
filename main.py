@@ -61,7 +61,12 @@ class HouseKeeper(commands.Bot):
             await self.load_extension("cogs.timer")
             await self.load_extension("cogs.slash")
             await self.load_extension("cogs.utilities")
+            await self.load_extension("cogs.ticket")
 
+
+            # Make the Buttons save on restart
+            self.add_view(TicketManger(self))
+            self.add_view(TicketUI(self))
 
 HouseKeeper().run(token)
 
