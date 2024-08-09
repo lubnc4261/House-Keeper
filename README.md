@@ -52,9 +52,9 @@ This bot is a versatile tool designed for a range of uses, including management,
 - The bot is initialized with a default prefix of `<` and changeable via `<prefix !`
 
 - Custom responses for various scenarios a command might encounter during execution, such as, but not limited to:
-  
-![example](https://media.discordapp.net/attachments/1268177354614640661/1269975747292827712/image.png?ex=66b20495&is=66b0b315&hm=a3c9e5ccf77dab54e509e01dc708504bef28a8859f5a4fb8b3fe597de0e0ff0b&=&format=webp&quality=lossless)
-
+  - Attempting to ban a user with higher permissions than the bot
+  - Trying to unban a user who is not currently banned
+ 
 - The following are the logging cases currently supported by the bot.
   - message:
       - edit
