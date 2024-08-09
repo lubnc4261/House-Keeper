@@ -29,6 +29,8 @@
   <a href="https://github.com/lubnc4261/House-Keeper?tab=readme-ov-file#featured-commands">Commands</a>
   •
   <a href="https://github.com/lubnc4261/House-Keeper?tab=readme-ov-file#tickets">Tickets</a>
+  •
+  <a href="https://github.com/lubnc4261/House-Keeper?tab=readme-ov-file#logging">Logging</a>
 </p>
 
 # Preface
@@ -38,44 +40,23 @@ What began as a simple, fun idea a few years ago has developed into a fully-fled
 
 # To-Do List
 
-- [x] Rewrite to v2
-- [x] Add slash-comamnds
-- [ ] Implement music-feature
-- [x] Create Ticket support
+- ✔️ Rewrite to v2
+- ✅ Add slash-comamnds
+- ✅ Create Ticket support
+- ❌ Implement music-feature
+- ❌ Add an Economy System
 
 # Overview
 
 This bot is a versatile tool designed for a range of uses, including management, utility features, and more. I am committed to keeping the bot up-to-date and continuously adding new features. If you explore the code and have any questions, suggestions, or encounter any bugs, please feel free to submit a pull request or open an issue.
 
-- The account that I use in the examples, `test` is entirely fictional and has no connection or association with any real individual or this Project
-- If the server has a channel named `hk-logging`, all events will be logged there. If such a channel does not exist, you can use the command `<setuplog` to automatically create one for you
 - The bot is initialized with a default prefix of `<` and changeable via `<prefix !`
 
 - Custom responses for various scenarios a command might encounter during execution, such as, but not limited to:
   - Attempting to ban a user with higher permissions than the bot
   - Trying to unban a user who is not currently banned
  
-- The following are the logging cases currently supported by the bot.
-  - message:
-      - edit
-      - delete
-  - channel:
-      - create
-      - delete
-      - update
-  - member:
-      - nickanme update
-      - role update
-      - ban
-      - unban
-      - join
-      - remove
-  - voice channel:
-      - join
-      - leave
-      - streaming
-  - server:
-      - invite creation
+- An effort to address the most common daily functions
 
 
 # Installation
@@ -104,6 +85,12 @@ After you confirmed that Python3 is successfully installed, open a Terminal in t
 - Download [this Project](https://github.com/lubnc4261/House-Keeper/archive/refs/heads/main.zip) directly or use git in case you have it installed.
 - Insert your previously generated Token into the [config.json](https://github.com/lubnc4261/House-Keeper/blob/08ec95a6ff2ba505fcb417d91509d969cc79ceb8/config.json) file
 - You can now start the bot by executing the following command  `python main.py`
+
+# Logging
+
+
+- If the server has a channel named `hk-logging`, all events will be logged there. If such a channel does not exist, you can use the command `<setuplog` to automatically create one for you
+- Examples of events that are logged include channel edits, voice channel activities, deleted messages, role updates, and more.
 
 
 # Developer
@@ -154,6 +141,8 @@ When a user or admin closes the ticket using the provided button, the log is aut
 # Featured Commands
 
 The following list includes all currently available commands, organized into subcategories based on their respective cogs.
+
+- The account that I use in the examples, `test` is entirely fictional and has no connection or association with any real individual or this Project
 
 
 ### bot ###
